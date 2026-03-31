@@ -2,6 +2,6 @@ services:
   - type: web
     name: waste-classifier-api
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install gunicorn flask tensorflow-cpu numpy pillow h5py scikit-learn
     startCommand: gunicorn app:app --bind 0.0.0.0:10000
     plan: free
