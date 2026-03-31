@@ -6,7 +6,11 @@ from PIL import Image
 import io
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}}) 
+
+@app.route("/")
+def home():
+    return "Waste Classifier API is running!"
 
 # Load model once at startup
 model = tf.keras.models.load_model("waste_final.h5")
